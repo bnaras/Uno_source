@@ -195,6 +195,27 @@ if(HIGHS)
 endif()
 
 # MUMPS
+if(MUMPS_VIA_R)
+   # ------------------------------------------------------------------
+   # MUMPS provided at RUNTIME by the R `rmumps` package.
+   #
+   # rmumps' shared object already contains a sequential MUMPS 5.2.1 build
+   # (plus its PORD/METIS/libseq dependencies). We therefore compile
+   # MUMPSSolver.cpp against rmumps' MUMPS headers (passed in via
+   # MUMPS_R_INCLUDE_DIRS) but link NO MUMPS/METIS/MPI/OpenMP library here.
+   # The single `dmumps_c` entry point is left undefined in libuno.a and is
+   # resolved at load time by a forwarder shim shipped in the R package's own
+   # src that fetches rmumps' dmumps_c via R_FindSymbol() (see
+   # interfaces/R/src/dmumps_shim.c).
+   #
+   # Only HAS_MUMPS is defined (sequential): MUMPSSolver.cpp's #include "mpi.h"
+   # is guarded by HAS_MPI && MUMPS_PARALLEL, so no MPI header/symbol is needed.
+   # ------------------------------------------------------------------
+   target_compile_definitions(uno_dependencies INTERFACE HAS_MUMPS)
+   target_sources(compiled_uno_files PRIVATE uno/ingredients/subproblem_solvers/MUMPS/MUMPSSolver.cpp)
+   target_include_directories(uno_dependencies SYSTEM INTERFACE ${MUMPS_R_INCLUDE_DIRS})
+   message(STATUS "MUMPS via R (rmumps): headers only, dmumps_c resolved at runtime")
+else()
 find_package(MUMPS)
 if(MUMPS_LIBRARY)
    target_link_libraries(uno_dependencies INTERFACE ${MUMPS_LIBRARY} ${MUMPS_COMMON_LIBRARY} ${MUMPS_PORD_LIBRARY})
@@ -232,6 +253,7 @@ if(MUMPS_LIBRARY)
 
    message(STATUS "Found MUMPS")
 endif()
+endif() # MUMPS_VIA_R
 
 # SPRAL SSIDS
 find_library(SPRAL NAMES spral)
