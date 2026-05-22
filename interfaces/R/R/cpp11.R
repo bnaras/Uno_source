@@ -4,6 +4,6 @@ uno_version <- function() {
   .Call(`_Uno_uno_version`)
 }
 
-uno_solve <- function(n, lb, ub, sense, obj, grad, m, cl, cu, cons, jac_rows, jac_cols, jac, hess_rows, hess_cols, hess, x0, preset, base_indexing, verbose) {
-  .Call(`_Uno_uno_solve`, n, lb, ub, sense, obj, grad, m, cl, cu, cons, jac_rows, jac_cols, jac, hess_rows, hess_cols, hess, x0, preset, base_indexing, verbose)
+uno_solve_impl <- function(n, lb, ub, sense, obj, grad, m, cl, cu, cons, jac_rows, jac_cols, jac, hess_rows, hess_cols, hess, x0, preset, base_indexing, verbose, options) {
+  .Call(`_Uno_uno_solve_impl`, n, lb, ub, sense, obj, grad, m, cl, cu, cons, jac_rows, jac_cols, jac, hess_rows, hess_cols, hess, x0, preset, base_indexing, verbose, options)
 }

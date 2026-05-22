@@ -160,17 +160,77 @@ std::string uno_version() {
 //   x0           initial primal iterate (length n)
 //   preset       Uno preset, e.g. "filtersqp" (HiGHS-backed SQP)
 //   base_indexing 0 (C-style) or 1 (Fortran-style) for the COO indices
+// Apply user-supplied solver options (a named R list) on top of the preset.
+// Each value is coerced to the option's DECLARED Uno type (queried via
+// uno_get_solver_option_type), so e.g. max_iterations = 200 (an R double) is
+// accepted for an integer-typed option. An unknown option name, or a value the
+// option rejects, raises a clean R error rather than silently being ignored.
+static void apply_solver_options(void* solver, SEXP options) {
+  const R_xlen_t k = Rf_xlength(options);
+  if (k == 0) return;
+  SEXP nms = Rf_getAttrib(options, R_NamesSymbol);
+  if (nms == R_NilValue || Rf_xlength(nms) != k) {
+    Rf_error("Uno: `options` must be a named list (every element needs a name).");
+  }
+  for (R_xlen_t i = 0; i < k; ++i) {
+    const char* key = CHAR(STRING_ELT(nms, i));
+    if (key[0] == '\0') {
+      Rf_error("Uno: `options` element %lld has an empty name.", (long long)(i + 1));
+    }
+    SEXP val = VECTOR_ELT(options, i);
+    if (Rf_xlength(val) != 1) {
+      Rf_error("Uno: option '%s' must be a single scalar value.", key);
+    }
+    const uno_int otype = uno_get_solver_option_type(solver, key);
+    bool ok = false;
+    switch (otype) {
+      case UNO_OPTION_TYPE_INTEGER: {
+        const int v = Rf_asInteger(val);
+        if (v == NA_INTEGER)
+          Rf_error("Uno: option '%s' (integer) is NA or not coercible.", key);
+        ok = uno_set_solver_integer_option(solver, key, static_cast<uno_int>(v));
+        break;
+      }
+      case UNO_OPTION_TYPE_DOUBLE: {
+        const double v = Rf_asReal(val);
+        if (ISNA(v)) Rf_error("Uno: option '%s' (double) is NA.", key);
+        ok = uno_set_solver_double_option(solver, key, v);
+        break;
+      }
+      case UNO_OPTION_TYPE_BOOL: {
+        const int v = Rf_asLogical(val);
+        if (v == NA_LOGICAL)
+          Rf_error("Uno: option '%s' (bool) is NA or not coercible.", key);
+        ok = uno_set_solver_bool_option(solver, key, v != 0);
+        break;
+      }
+      case UNO_OPTION_TYPE_STRING: {
+        if (TYPEOF(val) != STRSXP)
+          Rf_error("Uno: option '%s' (string) must be a character value.", key);
+        ok = uno_set_solver_string_option(solver, key, CHAR(STRING_ELT(val, 0)));
+        break;
+      }
+      case UNO_OPTION_TYPE_NOT_FOUND:
+      default:
+        Rf_error("Uno: unknown solver option '%s'.", key);
+    }
+    if (!ok) Rf_error("Uno: solver rejected option '%s'.", key);
+  }
+}
+
 //   verbose      if FALSE, suppress Uno's solution printout
+//   options      named list of Uno solver options applied AFTER the preset
+//                (so they override it); values coerced to each option's type
 //
 // Returns a named list with the status, objective, primal/dual solutions,
-// iteration count and KKT residuals.
+// iteration count, KKT residuals and per-callback evaluation counters.
 [[cpp11::register]]
-cpp11::list uno_solve(int n, cpp11::doubles lb, cpp11::doubles ub, std::string sense,
+cpp11::list uno_solve_impl(int n, cpp11::doubles lb, cpp11::doubles ub, std::string sense,
                       SEXP obj, SEXP grad, int m, cpp11::doubles cl, cpp11::doubles cu,
                       SEXP cons, cpp11::integers jac_rows, cpp11::integers jac_cols,
                       SEXP jac, cpp11::integers hess_rows, cpp11::integers hess_cols,
                       SEXP hess, cpp11::doubles x0, std::string preset,
-                      int base_indexing, bool verbose) {
+                      int base_indexing, bool verbose, cpp11::list options) {
   RCallbacks cb;
   cb.obj = obj;
   cb.grad = grad;
@@ -218,6 +278,8 @@ cpp11::list uno_solve(int n, cpp11::doubles lb, cpp11::doubles ub, std::string s
   if (has_hessian) {
     uno_set_solver_string_option(solver, "hessian_model", "exact");
   }
+  // user options override the preset and the defaults set just above
+  apply_solver_options(solver, options);
 
   uno_optimize(solver, model);
 
