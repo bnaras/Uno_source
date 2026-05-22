@@ -35,3 +35,20 @@ res_err <- uno_solve(
   x0 = c(0, 0), preset = "filtersqp", base_indexing = 0L, verbose = FALSE
 )
 expect_equal(res_err$optimization_status, 3L)         # UNO_EVALUATION_ERROR
+
+## the interior-point "ipopt" preset uses MUMPS as its symmetric-indefinite
+## linear solver. MUMPS is reached at runtime from the 'rmumps' package via
+## R_FindSymbol (see src/dmumps_shim.c) -- this exercises that path end-to-end.
+## Same convex NLP: x* = (1, 2), f* = 0.
+res_ip <- uno_solve(
+  n = 2L, lb = c(-Inf, -Inf), ub = c(Inf, Inf), sense = "minimize",
+  obj = obj, grad = grad,
+  m = 1L, cl = -Inf, cu = 10, cons = cons,
+  jac_rows = c(0L, 0L), jac_cols = c(0L, 1L), jac = jac,
+  hess_rows = c(0L, 1L), hess_cols = c(0L, 1L), hess = hess,
+  x0 = c(0, 0), preset = "ipopt", base_indexing = 0L, verbose = FALSE
+)
+expect_equal(res_ip$optimization_status, 0L)          # UNO_SUCCESS
+expect_equal(res_ip$solution_status, 1L)              # UNO_FEASIBLE_KKT_POINT
+expect_equal(res_ip$objective, 0, tolerance = 1e-6)
+expect_equal(res_ip$primal, c(1, 2), tolerance = 1e-5)

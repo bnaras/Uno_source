@@ -18,7 +18,8 @@ License: MIT + file LICENSE
 URL: https://github.com/cvanaret/Uno
 BugReports: https://github.com/cvanaret/Uno/issues
 SystemRequirements: CMake (>= 3.16), C++17, GNU make
-LinkingTo: cpp11
+Depends: rmumps (>= 5.2.1-41)
+LinkingTo: cpp11, rmumps
 Suggests: cpp11, tinytest
 NeedsCompilation: yes
 RoxygenNote: 7.3.2

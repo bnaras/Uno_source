@@ -100,6 +100,19 @@ if test -n "${HIGHS_LIB}"; then
 fi
 
 #
+# Optional MUMPS via rmumps: if MUMPS_R_INCLUDE_DIRS is exported (by ./configure,
+# pointing at the rmumps package's include dir), enable Uno's MUMPS linear solver
+# in HEADER-ONLY mode -- compile MUMPSSolver.cpp against rmumps' headers and link
+# NO MUMPS/METIS/MPI/OpenMP library. dmumps_c is resolved at runtime via
+# R_FindSymbol from rmumps (see interfaces/R/src/dmumps_shim.c).
+#
+MUMPS_OPTS=""
+if test -n "${MUMPS_R_INCLUDE_DIRS}"; then
+    MUMPS_OPTS="-DMUMPS_VIA_R:bool=ON -DMUMPS_R_INCLUDE_DIRS=${MUMPS_R_INCLUDE_DIRS}"
+    echo "MUMPS (rmumps headers): ${MUMPS_R_INCLUDE_DIRS}"
+fi
+
+#
 # Configure + build the static library
 #
 mkdir -p "${UNO_BUILD_DIR}"
@@ -115,6 +128,7 @@ CMAKE_OPTS="
     -DCMAKE_VERBOSE_MAKEFILE:bool=ON
     ${CCACHE_OPTS}
     ${HIGHS_OPTS}
+    ${MUMPS_OPTS}
 "
 
 if test "$(uname -s)" = "Darwin"; then
