@@ -1,0 +1,4 @@
+[submodule "interfaces/R/inst/HiGHS"]
+	path = interfaces/R/inst/HiGHS
+	url = https://github.com/ERGO-Code/HiGHS.git
+	tag = v1.14.0
