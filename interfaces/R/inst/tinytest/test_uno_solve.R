@@ -105,3 +105,15 @@ expect_equal(res_hs015$primal, c(0.5, 2.0), tolerance = 1e-4)
 expect_equal(length(res_hs015$constraint_dual), 2L)
 expect_true(all(is.finite(res_hs015$lower_bound_dual)))
 expect_true(all(is.finite(res_hs015$upper_bound_dual)))
+
+## the diagnostic / performance fields the example prints are all exposed and
+## populated: cpu_time plus the per-callback evaluation counters, the iteration
+## count and the number of subproblems solved.
+expect_true(is.finite(res_hs015$cpu_time) && res_hs015$cpu_time >= 0)
+expect_true(res_hs015$iterations > 0L)
+expect_true(res_hs015$objective_evaluations > 0L)
+expect_true(res_hs015$constraint_evaluations > 0L)
+expect_true(res_hs015$objective_gradient_evaluations > 0L)
+expect_true(res_hs015$jacobian_evaluations > 0L)
+expect_true(res_hs015$hessian_evaluations > 0L)
+expect_true(res_hs015$subproblems_solved > 0L)

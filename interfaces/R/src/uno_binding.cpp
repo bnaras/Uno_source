@@ -253,6 +253,14 @@ cpp11::list uno_solve(int n, cpp11::doubles lb, cpp11::doubles ub, std::string s
       "primal_feasibility"_nm = uno_get_solution_primal_feasibility(solver),
       "stationarity"_nm = uno_get_solution_stationarity(solver),
       "complementarity"_nm = uno_get_solution_complementarity(solver),
+      // performance / diagnostic counters (mirror unopy's Result fields)
+      "cpu_time"_nm = uno_get_cpu_time(solver),
+      "objective_evaluations"_nm = static_cast<int>(uno_get_number_objective_evaluations(solver)),
+      "constraint_evaluations"_nm = static_cast<int>(uno_get_number_constraint_evaluations(solver)),
+      "objective_gradient_evaluations"_nm = static_cast<int>(uno_get_number_objective_gradient_evaluations(solver)),
+      "jacobian_evaluations"_nm = static_cast<int>(uno_get_number_jacobian_evaluations(solver)),
+      "hessian_evaluations"_nm = static_cast<int>(uno_get_number_hessian_evaluations(solver)),
+      "subproblems_solved"_nm = static_cast<int>(uno_get_number_subproblem_solved_evaluations(solver)),
   });
 
   uno_destroy_solver(solver);
