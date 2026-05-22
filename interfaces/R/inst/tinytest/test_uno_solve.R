@@ -117,3 +117,26 @@ expect_true(res_hs015$objective_gradient_evaluations > 0L)
 expect_true(res_hs015$jacobian_evaluations > 0L)
 expect_true(res_hs015$hessian_evaluations > 0L)
 expect_true(res_hs015$subproblems_solved > 0L)
+
+## @unopy example_hs015.py (set_option)
+## the `options` passthrough forwards named Uno solver options, applied AFTER
+## the preset so they override it. Verify an option takes effect, that a value
+## is coerced to the option's declared type, and that misuse errors cleanly.
+hs015_solve <- function(opts) uno_solve(
+  n = 2L, lb = c(-Inf, -Inf), ub = c(0.5, Inf), sense = "minimize",
+  obj = hs015_obj, grad = hs015_grad,
+  m = 2L, cl = c(1, 0), cu = c(Inf, Inf), cons = hs015_cons,
+  jac_rows = c(0L, 1L, 0L, 1L), jac_cols = c(0L, 0L, 1L, 1L), jac = hs015_jac,
+  hess_rows = c(0L, 1L, 1L), hess_cols = c(0L, 0L, 1L), hess = hs015_hess,
+  x0 = c(-2, 1), preset = "ipopt", base_indexing = 0L, verbose = FALSE,
+  options = opts
+)
+## max_iterations caps the solve well below the ~18 iterations it otherwise needs
+capped_int <- hs015_solve(list(max_iterations = 3L))
+expect_true(capped_int$iterations <= 3L)
+## a value is coerced to the option's declared (integer) type: 3 (double) == 3L
+capped_dbl <- hs015_solve(list(max_iterations = 3))
+expect_equal(capped_dbl$iterations, capped_int$iterations)
+## an unknown option name and an unnamed options list both error cleanly
+expect_error(hs015_solve(list(not_a_real_option = 1)), "unknown solver option")
+expect_error(hs015_solve(list(1)), "named list")
