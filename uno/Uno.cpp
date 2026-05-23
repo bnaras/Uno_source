@@ -143,17 +143,17 @@ namespace uno {
    }
    
    void Uno::print_available_strategies() {
-      std::cout << "Available Uno strategies:\n";
-      std::cout << "- Constraint relaxation strategies: " << join(ConstraintRelaxationStrategyFactory::available_strategies, ", ") << '\n';
-      std::cout << "- Globalization mechanisms: " << join(GlobalizationMechanismFactory::available_strategies, ", ") << '\n';
-      std::cout << "- Globalization strategies: " << join(GlobalizationStrategyFactory::available_strategies, ", ") << '\n';
-      std::cout << "- Inequality handling methods: " << join(InequalityHandlingMethodFactory::available_strategies(), ", ") << '\n';
-      std::cout << "- Hessian models: " << join(HessianSubproblemSolverJointFactory::available_strategies, ", ") << '\n';
-      std::cout << "- Inertia correction strategies: " << join(InertiaCorrectionStrategyFactory::available_strategies, ", ") << '\n';
-      std::cout << "- QP solvers: " << join(QPSolverFactory::available_solvers, ", ") << '\n';
-      std::cout << "- LP solvers: " << join(LPSolverFactory::available_solvers, ", ") << '\n';
-      std::cout << "- Linear solvers: " << join(SymmetricIndefiniteLinearSolverFactory::available_solvers(), ", ") << '\n';
-      std::cout << "- Presets: filtersqp, ipopt\n";
+      UNO_COUT << "Available Uno strategies:\n";
+      UNO_COUT << "- Constraint relaxation strategies: " << join(ConstraintRelaxationStrategyFactory::available_strategies, ", ") << '\n';
+      UNO_COUT << "- Globalization mechanisms: " << join(GlobalizationMechanismFactory::available_strategies, ", ") << '\n';
+      UNO_COUT << "- Globalization strategies: " << join(GlobalizationStrategyFactory::available_strategies, ", ") << '\n';
+      UNO_COUT << "- Inequality handling methods: " << join(InequalityHandlingMethodFactory::available_strategies(), ", ") << '\n';
+      UNO_COUT << "- Hessian models: " << join(HessianSubproblemSolverJointFactory::available_strategies, ", ") << '\n';
+      UNO_COUT << "- Inertia correction strategies: " << join(InertiaCorrectionStrategyFactory::available_strategies, ", ") << '\n';
+      UNO_COUT << "- QP solvers: " << join(QPSolverFactory::available_solvers, ", ") << '\n';
+      UNO_COUT << "- LP solvers: " << join(LPSolverFactory::available_solvers, ", ") << '\n';
+      UNO_COUT << "- Linear solvers: " << join(SymmetricIndefiniteLinearSolverFactory::available_solvers(), ", ") << '\n';
+      UNO_COUT << "- Presets: filtersqp, ipopt\n";
    }
 
    const std::string& Uno::get_method_description() const {

@@ -948,7 +948,7 @@ bool uno_set_logger_stream_callback(uno_logger_stream_callback logger_stream_cal
 bool uno_reset_logger_stream() {
    delete c_ostream;
    c_ostream = nullptr;
-   Logger::set_stream(std::cout);
+   Logger::set_stream(UNO_COUT);
    return true;
 }
 
