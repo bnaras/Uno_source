@@ -3,7 +3,7 @@
 
 #include "FletcherFilterMethod.hpp"
 #include "filters/Filter.hpp"
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 #include "tools/Logger.hpp"
 #include "tools/Statistics.hpp"
 

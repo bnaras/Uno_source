@@ -5,7 +5,7 @@
 #define UNO_ITERATE_H
 
 #include "SolutionStatus.hpp"
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 #include "optimization/Multipliers.hpp"
 #include "optimization/DualResiduals.hpp"
 

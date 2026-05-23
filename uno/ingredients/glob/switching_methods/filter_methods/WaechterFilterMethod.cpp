@@ -3,7 +3,7 @@
 
 #include "WaechterFilterMethod.hpp"
 #include "filters/Filter.hpp"
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 #include "optimization/Iterate.hpp"
 #include "tools/Logger.hpp"
 #include "options/Options.hpp"

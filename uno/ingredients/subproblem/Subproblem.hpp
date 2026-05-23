@@ -5,7 +5,7 @@
 #define UNO_SUBPROBLEM_H
 
 #include <functional>
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 #include "linear_algebra/MatrixOrder.hpp"
 #include "linear_algebra/Vector.hpp"
 #include "linear_algebra/VectorView.hpp"

@@ -6,7 +6,7 @@
 
 #include <memory>
 #include "ConstraintRelaxationStrategy.hpp"
-#include "ingredients/globalization_strategies/MeritFunction.hpp"
+#include "ingredients/glob/MeritFunction.hpp"
 #include "optimization/OptimizationProblem.hpp"
 #include "optimization/Parameterization.hpp"
 

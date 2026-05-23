@@ -3,7 +3,7 @@
 
 #include "OptimizationProblem.hpp"
 #include "ingredients/hessian_models/HessianModel.hpp"
-#include "ingredients/inequality_handling_methods/InequalityHandlingMethod.hpp"
+#include "ingredients/ineq/InequalityHandlingMethod.hpp"
 #include "linear_algebra/MatrixOrder.hpp"
 #include "linear_algebra/VectorView.hpp"
 #include "model/Model.hpp"
