@@ -6,7 +6,7 @@
 
 #include <memory>
 #include "ingredients/globalization_mechanisms/GlobalizationMechanism.hpp"
-#include "ingredients/globalization_strategies/GlobalizationStrategy.hpp"
+#include "ingredients/glob/GlobalizationStrategy.hpp"
 #include "optimization/Result.hpp"
 
 namespace uno {
