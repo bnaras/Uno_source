@@ -4,7 +4,7 @@
 #include <cmath>
 #include <cassert>
 #include "TrustRegionStrategy.hpp"
-#include "ingredients/constraint_relaxation_strategies/ConstraintRelaxationStrategy.hpp"
+#include "ingredients/con_relax/ConstraintRelaxationStrategy.hpp"
 #include "ingredients/subproblem_solvers/SubproblemStatus.hpp"
 #include "model/Model.hpp"
 #include "optimization/Direction.hpp"

@@ -3,8 +3,8 @@
 
 #include <cassert>
 #include "BacktrackingLineSearch.hpp"
-#include "ingredients/constraint_relaxation_strategies/ConstraintRelaxationStrategy.hpp"
-#include "ingredients/inertia_correction_strategies/UnstableInertiaCorrection.hpp"
+#include "ingredients/con_relax/ConstraintRelaxationStrategy.hpp"
+#include "ingredients/inertia/UnstableInertiaCorrection.hpp"
 #include "model/Model.hpp"
 #include "optimization/Direction.hpp"
 #include "optimization/EvaluationErrors.hpp"
