@@ -2,12 +2,12 @@
 // Licensed under the MIT license. See LICENSE file in the project directory for details.
 
 #include "Uno.hpp"
-#include "ingredients/constraint_relaxation_strategies/ConstraintRelaxationStrategyFactory.hpp"
+#include "ingredients/con_relax/ConstraintRelaxationStrategyFactory.hpp"
 #include "ingredients/globalization_mechanisms/GlobalizationMechanismFactory.hpp"
 #include "ingredients/glob/GlobalizationStrategyFactory.hpp"
 #include "ingredients/hessian_models/HessianSubproblemSolverJointFactory.hpp"
 #include "ingredients/ineq/InequalityHandlingMethodFactory.hpp"
-#include "ingredients/inertia_correction_strategies/InertiaCorrectionStrategyFactory.hpp"
+#include "ingredients/inertia/InertiaCorrectionStrategyFactory.hpp"
 #include "ingredients/subproblem_solvers/QPSolverFactory.hpp"
 #include "ingredients/subproblem_solvers/LPSolverFactory.hpp"
 #include "ingredients/subproblem_solvers/SymmetricIndefiniteLinearSolverFactory.hpp"

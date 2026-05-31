@@ -3,7 +3,7 @@
 
 #include "NoInequalityReformulation.hpp"
 #include "optimization/Iterate.hpp"
-#include "ingredients/constraint_relaxation_strategies/relaxed_problems/l1RelaxedProblem.hpp"
+#include "ingredients/con_relax/relaxed_problems/l1RelaxedProblem.hpp"
 
 namespace uno {
    NoInequalityReformulation::NoInequalityReformulation(std::string name): name(std::move(name)) {

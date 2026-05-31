@@ -6,7 +6,7 @@
 
 #include <memory>
 #include <vector>
-#include "ingredients/inertia_correction_strategies/Inertia.hpp"
+#include "ingredients/inertia/Inertia.hpp"
 #include "linear_algebra/MatrixOrder.hpp"
 #include "linear_algebra/Norm.hpp"
 #include "optimization/SolutionStatus.hpp"
