@@ -280,28 +280,28 @@ namespace uno {
             switch (option_type) {
                case OptionType::INTEGER:
                   if (default_options.integer_options.find(option_name) != default_options.integer_options.end()) {
-                     std::cout << option_name << '\t' << default_options.integer_options.at(option_name) << '\n';
+                     UNO_COUT << option_name << '\t' << default_options.integer_options.at(option_name) << '\n';
                   }
                   break;
                case OptionType::DOUBLE:
                   if (default_options.double_options.find(option_name) != default_options.double_options.end()) {
-                     std::cout << option_name << '\t' << default_options.double_options.at(option_name) << '\n';
+                     UNO_COUT << option_name << '\t' << default_options.double_options.at(option_name) << '\n';
                   }
                   break;
                case OptionType::BOOL:
                   if (default_options.bool_options.find(option_name) != default_options.bool_options.end()) {
-                     std::cout << option_name << '\t' << (default_options.bool_options.at(option_name) ? "true" : "false") << '\n';
+                     UNO_COUT << option_name << '\t' << (default_options.bool_options.at(option_name) ? "true" : "false") << '\n';
                   }
                   break;
                case OptionType::STRING:
                   if (default_options.string_options.find(option_name) != default_options.string_options.end()) {
-                     std::cout << option_name << '\t' << default_options.string_options.at(option_name) << '\n';
+                     UNO_COUT << option_name << '\t' << default_options.string_options.at(option_name) << '\n';
                   }
                   break;
             }
          }
          catch (const std::out_of_range &) {
-            std::cout << "<error>\n";
+            UNO_COUT << "<error>\n";
          }
       }
    }
