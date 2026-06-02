@@ -363,10 +363,15 @@ public:
    bool termination(const Vector<double>& primals, const Multipliers& multipliers, double objective_multiplier,
          double primal_feasibility_residual, double stationarity_residual, double complementarity_residual) override {
       if (this->termination_callback) {
+         // The C termination callback follows the documented convention "returns
+         // true for user termination" (Uno_C_API.h), so a nonzero return means
+         // terminate. (The earlier `== 0` inverted this: it stopped the solve as
+         // soon as the callback returned 0/continue, and ignored a request to
+         // stop -- matching the Python binding, which returns the value as-is.)
          return this->termination_callback(static_cast<uno_int>(primals.size()),
             static_cast<uno_int>(multipliers.constraints.size()), primals.data(), multipliers.lower_bounds.data(),
             multipliers.upper_bounds.data(), multipliers.constraints.data(), objective_multiplier, primal_feasibility_residual,
-            stationarity_residual, complementarity_residual, this->user_data) == 0;
+            stationarity_residual, complementarity_residual, this->user_data) != 0;
       }
       else {
          return false; // no user termination
