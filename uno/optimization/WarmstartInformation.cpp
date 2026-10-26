@@ -3,14 +3,15 @@
 
 #include <iostream>
 #include "WarmstartInformation.hpp"
+#include "tools/r_io.h"
 
 namespace uno {
    void WarmstartInformation::display() const {
-      std::cout << "New iterate: " << std::boolalpha << this->new_iterate << '\n';
-      std::cout << "Constraint bounds changed: " << std::boolalpha << this->constraint_bounds_changed << '\n';
-      std::cout << "Trust-region radius changed: " << std::boolalpha << this->trust_region_changed << '\n';
-      std::cout << "Hessian sparsity changed: " << std::boolalpha << this->hessian_sparsity_changed << '\n';
-      std::cout << "Jacobian sparsity changed: " << std::boolalpha << this->jacobian_sparsity_changed << '\n';
+      UNO_COUT << "New iterate: " << std::boolalpha << this->new_iterate << '\n';
+      UNO_COUT << "Constraint bounds changed: " << std::boolalpha << this->constraint_bounds_changed << '\n';
+      UNO_COUT << "Trust-region radius changed: " << std::boolalpha << this->trust_region_changed << '\n';
+      UNO_COUT << "Hessian sparsity changed: " << std::boolalpha << this->hessian_sparsity_changed << '\n';
+      UNO_COUT << "Jacobian sparsity changed: " << std::boolalpha << this->jacobian_sparsity_changed << '\n';
    }
 
    void WarmstartInformation::no_changes() {

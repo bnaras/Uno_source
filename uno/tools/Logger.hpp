@@ -6,6 +6,7 @@
 
 #include <string>
 #include <iostream>
+#include "tools/r_io.h"
 
 namespace uno {
    enum Level {
@@ -15,7 +16,7 @@ namespace uno {
    class Logger {
    public:
        static Level level;
-       inline static std::ostream* stream = &std::cout;
+       inline static std::ostream* stream = &UNO_COUT;
        static void set_logger(const std::string& logger_level);
        static void set_stream(std::ostream& output_stream);
        static void flush();

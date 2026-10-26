@@ -379,7 +379,7 @@ namespace uno {
       std::sort(option_names.begin(), option_names.end());
 
       for (const std::string& option_name: option_names) {
-         std::cout << option_name << '\t' << to_string(default_options.values.at(option_name)) << '\n';
+         UNO_COUT << option_name << '\t' << to_string(default_options.values.at(option_name)) << '\n';
       }
    }
 
