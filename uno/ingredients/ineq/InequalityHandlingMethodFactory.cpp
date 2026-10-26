@@ -8,8 +8,8 @@
 #include "ingredients/subproblem_solvers/LPSolverFactory.hpp"
 #include "ingredients/subproblem_solvers/QPSolverFactory.hpp"
 #include "ingredients/subproblem_solvers/SymmetricIndefiniteLinearSolverFactory.hpp"
-#include "interior_point_methods/InteriorPointMethod.hpp"
-#include "interior_point_methods/barrier_problems/PrimalDualInteriorPointProblem.hpp"
+#include "ipm/InteriorPointMethod.hpp"
+#include "ipm/barrier_problems/PrimalDualInteriorPointProblem.hpp"
 #include "options/Options.hpp"
 
 namespace uno {

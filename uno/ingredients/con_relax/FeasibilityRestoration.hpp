@@ -8,8 +8,8 @@
 #include <vector>
 #include "ConstraintRelaxationStrategy.hpp"
 #include "relaxed_problems/l1RelaxedProblem.hpp"
-#include "ingredients/globalization_strategies/MeritFunction.hpp"
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/MeritFunction.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 #include "linear_algebra/Vector.hpp"
 #include "options/Options.hpp"
 

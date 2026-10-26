@@ -5,7 +5,7 @@
 #define UNO_FILTERMETHOD_H
 
 #include "Filter.hpp"
-#include "ingredients/globalization_strategies/switching_methods/SwitchingMethod.hpp"
+#include "ingredients/glob/switching/SwitchingMethod.hpp"
 
 namespace uno {
    // forward declaration

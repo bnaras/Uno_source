@@ -3,9 +3,9 @@
 
 #include "NoInequalityReformulation.hpp"
 #include "optimization/Iterate.hpp"
-#include "ingredients/constraint_relaxation_strategies/relaxed_problems/l1RelaxedProblem.hpp"
+#include "ingredients/con_relax/relaxed_problems/l1RelaxedProblem.hpp"
 #include "ingredients/hessian_models/HessianModel.hpp"
-#include "ingredients/inertia_correction_strategies/InertiaCorrectionStrategy.hpp"
+#include "ingredients/inertia/InertiaCorrectionStrategy.hpp"
 #include "ingredients/subproblem_solvers/SubproblemSolver.hpp"
 #include "optimization/Direction.hpp"
 #include "optimization/Evaluations.hpp"

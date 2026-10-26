@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 #include "../DenseTestModel.hpp"
 #include "ingredients/hessian_models/ZeroHessian.hpp"
-#include "ingredients/inertia_correction_strategies/NoInertiaCorrection.hpp"
+#include "ingredients/inertia/NoInertiaCorrection.hpp"
 #include "ingredients/subproblem/Subproblem.hpp"
 #include "ingredients/subproblem_solvers/BoxLPSolver.hpp"
 #include "optimization/Direction.hpp"

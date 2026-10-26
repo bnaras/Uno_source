@@ -6,7 +6,7 @@
 
 #include <functional>
 #include <utility>
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 
 namespace uno {
    // lazy local models of the predicted reductions. For a fixed (current iterate, direction), the

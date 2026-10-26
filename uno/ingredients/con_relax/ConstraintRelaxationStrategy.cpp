@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project directory for details.
 
 #include "ConstraintRelaxationStrategy.hpp"
-#include "ingredients/globalization_strategies/GlobalizationStrategy.hpp"
+#include "ingredients/glob/GlobalizationStrategy.hpp"
 #include "optimization/OptimizationProblem.hpp"
 #include "options/Options.hpp"
 

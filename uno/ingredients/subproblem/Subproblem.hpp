@@ -5,7 +5,7 @@
 #define UNO_SUBPROBLEM_H
 
 #include <memory>
-#include "ingredients/globalization_strategies/PredictedReductionModels.hpp"
+#include "ingredients/glob/PredictedReductionModels.hpp"
 #include "linear_algebra/Vector.hpp"
 #include "linear_algebra/View.hpp"
 #include "optimization/OptimizationProblem.hpp"

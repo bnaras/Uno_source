@@ -4,7 +4,7 @@
 #include "OptimizationProblem.hpp"
 #include "ingredients/subproblem/NewtonSystem.hpp"
 #include "ingredients/hessian_models/HessianModel.hpp"
-#include "ingredients/inequality_handling_methods/InequalityHandlingMethod.hpp"
+#include "ingredients/ineq/InequalityHandlingMethod.hpp"
 #include "optimization/Direction.hpp"
 #include "optimization/Evaluations.hpp"
 #include "optimization/Iterate.hpp"

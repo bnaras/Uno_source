@@ -7,8 +7,8 @@
 #include <functional>
 #include <memory>
 #include <vector>
-#include "ingredients/globalization_strategies/PredictedReductionModels.hpp"
-#include "ingredients/inertia_correction_strategies/Inertia.hpp"
+#include "ingredients/glob/PredictedReductionModels.hpp"
+#include "ingredients/inertia/Inertia.hpp"
 #include "linear_algebra/Norm.hpp"
 #include "linear_algebra/Vector.hpp"
 #include "linear_algebra/View.hpp"

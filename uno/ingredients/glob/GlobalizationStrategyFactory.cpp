@@ -8,9 +8,9 @@
 #include "MeritFunction.hpp"
 #include "model/Model.hpp"
 #include "options/Options.hpp"
-#include "switching_methods/filter_methods/FletcherFilterMethod.hpp"
-#include "switching_methods/filter_methods/WaechterFilterMethod.hpp"
-#include "switching_methods/funnel_methods/FunnelMethod.hpp"
+#include "switching/filter_methods/FletcherFilterMethod.hpp"
+#include "switching/filter_methods/WaechterFilterMethod.hpp"
+#include "switching/funnel_methods/FunnelMethod.hpp"
 #include "tools/Logger.hpp"
 
 namespace uno {

@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 #include <gtest/gtest.h>
-#include "ingredients/globalization_strategies/switching_methods/filter_methods/Filter.hpp"
+#include "ingredients/glob/switching/filter_methods/Filter.hpp"
 #include "options/Options.hpp"
 
 using namespace uno;

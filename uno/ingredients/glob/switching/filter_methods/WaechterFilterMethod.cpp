@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "WaechterFilterMethod.hpp"
 #include "Filter.hpp"
-#include "ingredients/globalization_strategies/ProgressMeasures.hpp"
+#include "ingredients/glob/ProgressMeasures.hpp"
 #include "optimization/Iterate.hpp"
 #include "tools/Logger.hpp"
 #include "options/Options.hpp"

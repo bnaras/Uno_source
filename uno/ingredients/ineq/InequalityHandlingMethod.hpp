@@ -6,7 +6,7 @@
 
 #include <optional>
 #include <string>
-#include "ingredients/globalization_strategies/PredictedReductionModels.hpp"
+#include "ingredients/glob/PredictedReductionModels.hpp"
 #include "linear_algebra/Norm.hpp"
 
 namespace uno {

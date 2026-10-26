@@ -11,10 +11,10 @@
 #include <vector>
 #include <gtest/gtest.h>
 #include "ingredients/hessian_models/ExactHessian.hpp"
-#include "ingredients/inequality_handling_methods/interior_point_methods/InteriorPointParameters.hpp"
-#include "ingredients/inequality_handling_methods/interior_point_methods/barrier_problems/PrimalDualInteriorPointProblem.hpp"
-#include "ingredients/inertia_correction_strategies/PrimalDualInertiaCorrection.hpp"
-#include "ingredients/inertia_correction_strategies/PrimalInertiaCorrection.hpp"
+#include "ingredients/ineq/ipm/InteriorPointParameters.hpp"
+#include "ingredients/ineq/ipm/barrier_problems/PrimalDualInteriorPointProblem.hpp"
+#include "ingredients/inertia/PrimalDualInertiaCorrection.hpp"
+#include "ingredients/inertia/PrimalInertiaCorrection.hpp"
 #include "ingredients/subproblem/NewtonSystem.hpp"
 #include "ingredients/subproblem/Subproblem.hpp"
 #include "ingredients/subproblem_solvers/COOLinearSystem.hpp"

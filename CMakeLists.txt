@@ -1,4 +1,4 @@
-﻿# Copyright (c) 2018-2026 Charlie Vanaret
+# Copyright (c) 2018-2026 Charlie Vanaret
 # Licensed under the MIT license. See LICENSE file in the project directory for details.
 
 cmake_minimum_required(VERSION 3.12)
@@ -73,22 +73,22 @@ endif()
 file(GLOB UNO_SOURCE_FILES CONFIGURE_DEPENDS
    interfaces/C/Uno_C_API.cpp
    uno/Uno.cpp
-   uno/ingredients/constraint_relaxation_strategies/*.cpp
-   uno/ingredients/constraint_relaxation_strategies/relaxed_problems/*.cpp
+   uno/ingredients/con_relax/*.cpp
+   uno/ingredients/con_relax/relaxed_problems/*.cpp
    uno/ingredients/globalization_mechanisms/*.cpp
-   uno/ingredients/globalization_strategies/*.cpp
-   uno/ingredients/globalization_strategies/switching_methods/*.cpp
-   uno/ingredients/globalization_strategies/switching_methods/filter_methods/*.cpp
-   uno/ingredients/globalization_strategies/switching_methods/filter_methods/filters/*.cpp
-   uno/ingredients/globalization_strategies/switching_methods/funnel_methods/*.cpp
+   uno/ingredients/glob/*.cpp
+   uno/ingredients/glob/switching/*.cpp
+   uno/ingredients/glob/switching/filter_methods/*.cpp
+   uno/ingredients/glob/switching/filter_methods/filters/*.cpp
+   uno/ingredients/glob/switching/funnel_methods/*.cpp
    uno/ingredients/hessian_models/*.cpp
-   uno/ingredients/hessian_models/quasi_newton/*.cpp
-   uno/ingredients/hessian_models/quasi_newton/direct/*.cpp
-   uno/ingredients/hessian_models/quasi_newton/inverse/*.cpp
-   uno/ingredients/inequality_handling_methods/*.cpp
-   uno/ingredients/inequality_handling_methods/interior_point_methods/*.cpp
-   uno/ingredients/inequality_handling_methods/interior_point_methods/barrier_problems/*.cpp
-   uno/ingredients/inertia_correction_strategies/*.cpp
+   uno/ingredients/hessian_models/qn/*.cpp
+   uno/ingredients/hessian_models/qn/direct/*.cpp
+   uno/ingredients/hessian_models/qn/inverse/*.cpp
+   uno/ingredients/ineq/*.cpp
+   uno/ingredients/ineq/ipm/*.cpp
+   uno/ingredients/ineq/ipm/barrier_problems/*.cpp
+   uno/ingredients/inertia/*.cpp
    uno/ingredients/subproblem/*.cpp
    uno/ingredients/subproblem_solvers/*.cpp
    uno/model/*.cpp

@@ -6,7 +6,7 @@
 // Bug: the upper bound was set to beta * max(ub, h_last) = beta * ub, so the dropped entry's region was lost.
 
 #include <gtest/gtest.h>
-#include "ingredients/globalization_strategies/switching_methods/filter_methods/Filter.hpp"
+#include "ingredients/glob/switching/filter_methods/Filter.hpp"
 #include "options/DefaultOptions.hpp"
 #include "options/Options.hpp"
 

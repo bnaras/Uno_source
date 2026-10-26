@@ -6,7 +6,7 @@
 
 #include <cstddef>
 #include "SymmetricIndefiniteLinearSolver.hpp"
-#include "ingredients/inertia_correction_strategies/Inertia.hpp"
+#include "ingredients/inertia/Inertia.hpp"
 
 namespace uno {
    template <typename ElementType>

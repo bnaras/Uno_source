@@ -10,7 +10,7 @@
 #include <cstddef>
 #include <optional>
 #include <vector>
-#include "ingredients/globalization_strategies/PredictedReductionModels.hpp"
+#include "ingredients/glob/PredictedReductionModels.hpp"
 #include "linear_algebra/Norm.hpp"
 #include "model/Model.hpp"
 #include "optimization/Evaluations.hpp"

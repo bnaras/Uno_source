@@ -4,7 +4,7 @@
 #include <random>
 #include <stdexcept>
 #include <gtest/gtest.h>
-#include "ingredients/globalization_strategies/switching_methods/funnel_methods/Funnel.hpp"
+#include "ingredients/glob/switching/funnel_methods/Funnel.hpp"
 #include "options/Options.hpp"
 
 using namespace uno;

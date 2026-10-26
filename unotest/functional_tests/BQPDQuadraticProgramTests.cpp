@@ -3,9 +3,9 @@
 
 #include <gtest/gtest.h>
 #include "../DenseTestModel.hpp"
-#include "ingredients/constraint_relaxation_strategies/relaxed_problems/l1RelaxedProblem.hpp"
+#include "ingredients/con_relax/relaxed_problems/l1RelaxedProblem.hpp"
 #include "ingredients/hessian_models/ExactHessian.hpp"
-#include "ingredients/inertia_correction_strategies/PrimalInertiaCorrection.hpp"
+#include "ingredients/inertia/PrimalInertiaCorrection.hpp"
 #include "ingredients/subproblem/Subproblem.hpp"
 #include "ingredients/subproblem_solvers/BQPD/BQPDQuadraticProgram.hpp"
 #include "ingredients/subproblem_solvers/SymmetricIndefiniteLinearSolverFactory.hpp"

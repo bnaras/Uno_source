@@ -4,7 +4,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <gtest/gtest.h>
-#include "ingredients/inequality_handling_methods/interior_point_methods/BarrierParameterUpdateStrategy.hpp"
+#include "ingredients/ineq/ipm/BarrierParameterUpdateStrategy.hpp"
 #include "options/Options.hpp"
 
 using namespace uno;

@@ -4,8 +4,8 @@
 #include <memory>
 #include "NoRelaxation.hpp"
 #include "ingredients/hessian_models/HessianModel.hpp"
-#include "ingredients/inequality_handling_methods/InequalityHandlingMethod.hpp"
-#include "ingredients/inequality_handling_methods/InequalityHandlingMethodFactory.hpp"
+#include "ingredients/ineq/InequalityHandlingMethod.hpp"
+#include "ingredients/ineq/InequalityHandlingMethodFactory.hpp"
 #include "ingredients/subproblem/Subproblem.hpp"
 #include "optimization/Direction.hpp"
 #include "optimization/EvaluationCache.hpp"
