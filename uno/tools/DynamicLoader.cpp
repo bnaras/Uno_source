@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project directory for details.
 
 #include "DynamicLoader.hpp"
+#include <cstdlib>
 #include <cstring>
 #include <cctype>
 #ifndef _WIN32
